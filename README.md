@@ -1,11 +1,11 @@
 # exercise
 
 ### Aufgabe
-- GET für alle Autoren (http://localhost:5000/authors)
-- GET für alle Zitate eines Autors (http://localhost:5000/quotes/twain)
-- GET für alle Zitate (http://localhost:5000/quotes)
-- GET für ein spezifisches Zitat eines Autors (http://localhost:5000/quotes/4)
-- DELETE für ein spezifisches Zitat
+- GET für alle Autoren                        e.g. (http://localhost:5000/authors)
+- GET für alle Zitate eines Autors            e.g. (http://localhost:5000/quotes/twain)
+- GET für alle Zitate                         e.g. (http://localhost:5000/quotes)
+- GET für ein spezifisches Zitat eines Autors e.g. (http://localhost:5000/quotes/4)
+- DELETE für ein spezifisches Zitat           e.g. (http://localhost:5000/delete/1)
 - alle Endpunkte müssen auch HEAD unterstützen
 
 - Getestet mit **Postman**
