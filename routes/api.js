@@ -44,9 +44,9 @@ router.get('/quotes/:authorOrId', (req, res) => {
     // *****  ID WAS ENTERED  *****
     if (Number.isInteger(parseInt(req.params.authorOrId))) {
         quoteById(req, res);
-    }    
+    }
     // *****  AUTHOR WAS ENTERED  *****
-    else {  
+    else {
         allQuotesOfAuthor(req, res);
     }
 });
@@ -55,7 +55,31 @@ router.get('/quotes/:authorOrId', (req, res) => {
  * Delete specific ID
  */
 router.delete('/delete/:id', (req, res) => {
-    
+
+    var quotes = [];
+    // range of possible IDs
+    if ((req.params.id >= 1) && (req.params.id <= quoteDb.length)) {
+        var itemFound = quoteDb.find(elem => {
+            return elem.id == req.params.id;
+        });
+    }
+    else {
+        res.status(404).send("Requested does not exist.");
+    }
+
+    console.log(itemFound.id);
+
+
+
+
+    // quoteDb.forEach(elem => {
+    //     if (req.param.id == elem.id) {
+    //         console.log("made it");
+
+    //         delete elem;
+    //     }
+    // });
+    // res.send(quoteDb);
 });
 
 
