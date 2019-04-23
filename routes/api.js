@@ -115,22 +115,29 @@ function quoteById(req, res) {
 }
 
 function deleteQuoteById(req, res) {
-    var quotes = [];
-    // copy quoteDB into quotes 
-    quotes.push.apply(quotes, quoteDb);
-    
-    // range of possible IDs
-    if ((req.params.id >= 1) && (req.params.id <= quoteDb.length)) {
 
-        for (let i = 1; i <= quoteDb.length; i++) {
+    // hard-coded number of items in Database
+    //  -> damit range of possible IDs sich nicht verändert
+    //  -> durch jedes slice() wird quoteDb.length kürzer
+    const itemsInDatabase = 11;
+
+    // range of possible IDs
+    // quoteDbItems = highest possible ID
+    if ((req.params.id >= 1) && (req.params.id <= itemsInDatabase)) {
+        console.log("Input: " + req.params.id);
+        for (let i = 0; i < quoteDb.length; i++) {
             // compare: URL-ID & quoteDatabase-ID
-            if (req.params.id == quoteDb[i-1].id) {
-                // console.log(`quoteDb[${i}].id = ` + quoteDb[i-1].id);
-                quotes.splice(req.params.id - 1, 1);
-            }            
+            if (req.params.id == quoteDb[i].id) {
+                console.log("req.params.id: " + req.params.id + ` (type: ${typeof req.params.id})`);
+                console.log("quoteDb[i].id: " + quoteDb[i].id + ` (type: ${typeof quoteDb[i].id})`);
+                console.log("==========================================");
+                console.log(`TRYING TO DELETE:`);
+                console.log(quoteDb[i]);
+                console.log("==========================================");
+                console.log(`DELETED ELEMENT:`);
+                console.log(quoteDb.splice(quoteDb[i].id-1, 1));
+            }
         }
-        res.send(quotes);
-        return;
     } else {
         res.status(404).send("Requested does not exist.");
     }
