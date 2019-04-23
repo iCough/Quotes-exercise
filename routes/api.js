@@ -56,31 +56,10 @@ router.get('/quotes/:authorOrId', (req, res) => {
  */
 router.delete('/delete/:id', (req, res) => {
 
-    var quotes = [];
-    // range of possible IDs
-    if ((req.params.id >= 1) && (req.params.id <= quoteDb.length)) {
-        var itemFound = quoteDb.find(elem => {
-            return elem.id == req.params.id;
-        });
-    }
-    else {
-        res.status(404).send("Requested does not exist.");
-    }
-
-    console.log(itemFound.id);
-
-
-
-
-    // quoteDb.forEach(elem => {
-    //     if (req.param.id == elem.id) {
-    //         console.log("made it");
-
-    //         delete elem;
-    //     }
-    // });
-    // res.send(quoteDb);
+    deleteQuoteById(req, res);
 });
+
+
 
 
 
@@ -132,6 +111,28 @@ function quoteById(req, res) {
         });
     } else {    // ID not found
         res.status(404).send("Requested ID doesn't exist.");
+    }
+}
+
+function deleteQuoteById(req, res) {
+    var quotes = [];
+    // copy quoteDB into quotes 
+    quotes.push.apply(quotes, quoteDb);
+    
+    // range of possible IDs
+    if ((req.params.id >= 1) && (req.params.id <= quoteDb.length)) {
+
+        for (let i = 1; i <= quoteDb.length; i++) {
+            // compare: URL-ID & quoteDatabase-ID
+            if (req.params.id == quoteDb[i-1].id) {
+                // console.log(`quoteDb[${i}].id = ` + quoteDb[i-1].id);
+                quotes.splice(req.params.id - 1, 1);
+            }            
+        }
+        res.send(quotes);
+        return;
+    } else {
+        res.status(404).send("Requested does not exist.");
     }
 }
 
