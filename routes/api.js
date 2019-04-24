@@ -88,7 +88,7 @@ function allQuotesOfAuthor(req, res) {
             quotesByAuthor.push(element);
         }
     });
-    // check, if array empthy
+    // check, if array empty
     if (quotesByAuthor.length === 0) {
         res.status(404).send("Requested Author does not exist.");
         return;
@@ -121,21 +121,20 @@ function deleteQuoteById(req, res) {
     //  -> durch jedes slice() wird quoteDb.length kürzer
     const itemsInDatabase = 11;
 
-    // range of possible IDs
-    // quoteDbItems = highest possible ID
+    // range of possible ID
     if ((req.params.id >= 1) && (req.params.id <= itemsInDatabase)) {
         console.log("Input: " + req.params.id);
         for (let i = 0; i < quoteDb.length; i++) {
             // compare: URL-ID & quoteDatabase-ID
             if (req.params.id == quoteDb[i].id) {
-                console.log("req.params.id: " + req.params.id + ` (type: ${typeof req.params.id})`);
-                console.log("quoteDb[i].id: " + quoteDb[i].id + ` (type: ${typeof quoteDb[i].id})`);
-                console.log("==========================================");
-                console.log(`TRYING TO DELETE:`);
-                console.log(quoteDb[i]);
-                console.log("==========================================");
-                console.log(`DELETED ELEMENT:`);
-                console.log(quoteDb.splice(quoteDb[i].id-1, 1));
+                // console.log("req.params.id: " + req.params.id + ` (type: ${typeof req.params.id})`);
+                // console.log("quoteDb[i].id: " + quoteDb[i].id + ` (type: ${typeof quoteDb[i].id})`);
+                // console.log("==========================================");
+                // console.log(`TRYING TO DELETE:`);
+                // console.log(quoteDb[i]);
+                // console.log("==========================================");
+                // console.log(`DELETED ELEMENT:`);
+                res.send(quoteDb.splice(quoteDb[i].id-1, 1));
             }
         }
     } else {
