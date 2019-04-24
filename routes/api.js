@@ -102,7 +102,7 @@ function allQuotesOfAuthor(req, res) {
 function quoteById(req, res) {
 
     // Range of possible IDs
-    if ((req.params.authorOrId >= 1) && (req.params.authorOrId <= quoteDb.length)) {
+    if ((req.params.authorOrId >= 0) && (req.params.authorOrId <= quoteDb.length)) {
         quoteDb.forEach((quote) => {
             // requested ID...
             if (quote.id == req.params.authorOrId) {
@@ -118,27 +118,20 @@ function deleteQuoteById(req, res) {
 
     // hard-coded number of items in Database
     //  -> damit range of possible IDs sich nicht verändert
-    //  -> durch jedes slice() wird quoteDb.length kürzer
     const itemsInDatabase = 11;
 
     // range of possible ID
-    if ((req.params.id >= 1) && (req.params.id <= itemsInDatabase)) {
-        console.log("Input: " + req.params.id);
+    if ((req.params.id >= 0) && (req.params.id <= itemsInDatabase)) {
+
         for (let i = 0; i < quoteDb.length; i++) {
             // compare: URL-ID & quoteDatabase-ID
-            if (req.params.id == quoteDb[i].id) {
-                // console.log("req.params.id: " + req.params.id + ` (type: ${typeof req.params.id})`);
-                // console.log("quoteDb[i].id: " + quoteDb[i].id + ` (type: ${typeof quoteDb[i].id})`);
-                // console.log("==========================================");
-                // console.log(`TRYING TO DELETE:`);
-                // console.log(quoteDb[i]);
-                // console.log("==========================================");
-                // console.log(`DELETED ELEMENT:`);
-                res.send(quoteDb.splice(quoteDb[i].id-1, 1));
+            if (quoteDb[i].id == req.params.id) {
+                res.send(quoteDb.splice(req.params.id, 1));
+                return;
             }
         }
     } else {
-        res.status(404).send("Requested does not exist.");
+        res.status(404).send("Requested ID does not exist.");
     }
 }
 
