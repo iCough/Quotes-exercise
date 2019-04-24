@@ -26,8 +26,8 @@ Josh
     * /routes/api.js
     * quoteDatabase.js
 * Die Zitat-Datenbank _(quoteDatabase.js)_ ist ein Array von Objekten. Jedes Zitat hat 4 Properties:
-    i. id
-    ii. quote
-    iii. author _(wird verwendet für die Darstellung aller Autoren => /authors)_
-    iiii. nickname _(wird verwendet, bei abfrage eines einzelnen Autors => /quotes/gandhi)_
+    * id
+    * quote
+    * author _(wird verwendet für die Darstellung aller Autoren => /authors)_
+    * nickname _(wird verwendet, bei abfrage eines einzelnen Autors => /quotes/gandhi)_
 * Dadurch dass jedes Zitat-Objekt im Array eine eigene ID hat, gibt es beim Löschen eines einzelnen
