@@ -37,4 +37,4 @@ Josh
 * Der **get**-request für einen Autor bzw. ein Zitat liefert entsprechendes Ergebnis, je nachdem ob in der URL ein String oder Int erkannt wird.
 * Der **delete**-request entfernt das gewünschte Zitat. 
    * mehrmalige Ausführung kann zur Zeit noch nicht verarbeitet werden, wegen noch nicht implementiertem Umgang mit Index-mutation nach dem ersten delete. 
-   * **Lösung:** Nach erstem Delete-request neues Array erstellen und mit übrig gebliebenen Elementen auffüllen. Nächster delete-request an neuem Array (z.B. mit `splice()`) ausführen und neues Array mit wiederum übrigbleibenden Elementen überschreiben.
+   * **Lösung:** Nach erstem Delete-request neues Array erstellen (z.B. `slice()` und mit übriggebliebenen Elementen auffüllen. Nächster delete-request an neuem Array (z.B. mit `splice()`) ausführen und neues Array mit wiederum übrigbleibenden Elementen überschreiben.
