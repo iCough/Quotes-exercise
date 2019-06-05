@@ -34,4 +34,3 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
 * Der **delete**-request entfernt das gewünschte Zitat. 
    * mehrmalige Ausführung kann zur Zeit noch nicht verarbeitet werden, wegen noch nicht implementiertem Umgang mit Index-mutation nach dem ersten delete. 
    * **Lösung:** Nach erstem Delete-request neues Array erstellen (z.B. `slice()` und mit übriggebliebenen Elementen auffüllen. Nächster delete-request an neuem Array (z.B. mit `splice()`) ausführen und neues Array mit wiederum übrigbleibenden Elementen überschreiben.
->>>>>>> f3bc09448c52c41d4d72a67dee038fbf9f5cb899
