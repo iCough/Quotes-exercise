@@ -1,3 +1,5 @@
+Rest-API mit node.js
+
 Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementation ein Mitel fehlt, um mit der Index-Mutation umzugehen, wenn ein Element aus der Array entfernt wird. Die Lösung dafür wäre, dass nach der Entfernung eines Elements aus dem Array, ein neues Array erstellt wird (z.B. mit `slice()`), welches die übrig gebliebenen Items des Ursprungsarrays enthält. Aus diesem wird dann das nächste Item rausge-`splice()`t ..., um mal eine Möglichkeit dafür zu nennen. 
 
 
