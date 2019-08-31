@@ -21,12 +21,12 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
     * /routes/api.js
     * quoteDatabase.js
 * Die Zitat-Datenbank _(quoteDatabase.js)_ ist ein Array von Objekten. Jedes Zitat hat 4 Properties:
-    i. id
-    ii. quote
-    iii. author _(wird verwendet für die Darstellung aller Autoren => /authors)_
-    iiii. nickname _(wird verwendet, bei abfrage eines einzelnen Autors => /quotes/gandhi)_
+    1. id
+    2. quote
+    3. author _(wird verwendet für die Darstellung aller Autoren => /authors)_
+    4. nickname _(wird verwendet, bei abfrage eines einzelnen Autors => /quotes/gandhi)_
 * Dadurch dass jedes Zitat-Objekt im Array eine eigene ID hat, gibt es beim Löschen eines einzelnen
-=======
+Zitats zu Zeit noch das Problem, dass sich der Index verschiebt. 
     1. id
     2. quote
     3. author _(wird verwendet für die Darstellung aller Autoren => /authors)_
