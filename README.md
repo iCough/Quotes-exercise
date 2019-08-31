@@ -4,7 +4,7 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
 
 
 
-#### Aufgabe
+### Aufgabe
 * GET für alle Autoren                        e.g. (http://localhost:5000/authors)
 * GET für alle Zitate eines Autors            e.g. (http://localhost:5000/quotes/twain)
 * GET für alle Zitate                         e.g. (http://localhost:5000/quotes)
@@ -14,7 +14,7 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
 
 - Getestet mit **Postman**
 
-#### Kommentar
+### Kommentar
 * Ich habe den Code modularisiert, um besseren Überblick zu ermöglichen.
 * Es gibt 3 js-files in denen sich alles abspielt:
     * app.js
