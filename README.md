@@ -21,7 +21,6 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
     * /routes/api.js
     * quoteDatabase.js
 * Die Zitat-Datenbank _(quoteDatabase.js)_ ist ein Array von Objekten. Jedes Zitat hat 4 Properties:
-<<<<<<< HEAD
     i. id
     ii. quote
     iii. author _(wird verwendet für die Darstellung aller Autoren => /authors)_
