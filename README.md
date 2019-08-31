@@ -1,10 +1,10 @@
-Rest-API mit node.js
+## Rest-API mit node.js
 
 Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementation ein Mitel fehlt, um mit der Index-Mutation umzugehen, wenn ein Element aus der Array entfernt wird. Die Lösung dafür wäre, dass nach der Entfernung eines Elements aus dem Array, ein neues Array erstellt wird (z.B. mit `slice()`), welches die übrig gebliebenen Items des Ursprungsarrays enthält. Aus diesem wird dann das nächste Item rausge-`splice()`t ..., um mal eine Möglichkeit dafür zu nennen. 
 
 
 
-### Aufgabe
+#### Aufgabe
 * GET für alle Autoren                        e.g. (http://localhost:5000/authors)
 * GET für alle Zitate eines Autors            e.g. (http://localhost:5000/quotes/twain)
 * GET für alle Zitate                         e.g. (http://localhost:5000/quotes)
@@ -14,7 +14,7 @@ Der delete-request funktioniert (noch) nur einmalig, weil in dieser Implementati
 
 - Getestet mit **Postman**
 
-### Kommentar
+#### Kommentar
 * Ich habe den Code modularisiert, um besseren Überblick zu ermöglichen.
 * Es gibt 3 js-files in denen sich alles abspielt:
     * app.js
